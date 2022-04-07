@@ -31,4 +31,17 @@ def duplicate_string(string):
 print(duplicate_string(["a", "b", "c", "d", "c", "e", "d"]))
 print(duplicate_string(["a", "b", "c", "d"]))
 
+def alphabet_less_one(string):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    string_letters = defaultdict(lambda: False)
+    for char in string:
+        string_letters[char] = True
+    for char in alphabet:
+        if string_letters[char] == False:
+            return char
+            break
+    return ('No letters missing')
+
+print(alphabet_less_one("the quick brown box jumps over the lazy dog"))
+
     
