@@ -18,6 +18,17 @@ def intersection(array1, array2):
 
 print(intersection([1,2,3,4,5], [0,2,4,6,8]))
 
+def duplicate_string(string):
+    chars = defaultdict(lambda: False)
+    for char in string:
+        if chars[char]:
+            return char
+            break
+        else:
+            chars[char] = True
+    return "No duplicates"
 
-    
+print(duplicate_string(["a", "b", "c", "d", "c", "e", "d"]))
+print(duplicate_string(["a", "b", "c", "d"]))
+
     
