@@ -26,3 +26,15 @@ def triangular_nums(n, tot = 0, index = 1):
         return triangular_nums(n, tot, index)
 
 print(triangular_nums(7))
+
+def find_x(string, index = 0):
+    if string[0] is 'x':
+        return index
+    else:
+        index+=1
+        return find_x(string[1:], index)
+print(find_x("abcdefghijklmnopqrstuvwxyz"))
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+print(alphabet[1:])
