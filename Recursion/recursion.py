@@ -15,3 +15,14 @@ def evens(nums, even_nums = []):
             even_nums.append(check_num)
         return evens(nums[1:], even_nums)
 print(evens([1,2,3,4,5,6,7,8,9,10]))
+
+
+def triangular_nums(n, tot = 0, index = 1):
+    if index > n:
+        return tot
+    else:
+        tot+=index
+        index+=1
+        return triangular_nums(n, tot, index)
+
+print(triangular_nums(7))
