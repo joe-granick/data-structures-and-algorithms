@@ -35,6 +35,28 @@ def find_x(string, index = 0):
         return find_x(string[1:], index)
 print(find_x("abcdefghijklmnopqrstuvwxyz"))
 
-alphabet = "abcdefghijklmnopqrstuvwxyz"
+def count_shortest_paths(rows, cols, x0 = 1, y0 = 1):
+    if x0 == cols and y0 == rows:
+        return 1
+    else:
+        move_x = x0 + 1
+        move_y = y0 + 1
+        if move_x > cols and move_y <= rows:
+            return count_shortest_paths(rows, cols, x0, move_y)
+        if move_y > rows and move_x <= cols:
+            return count_shortest_paths(rows, cols, move_x, y0)
+        return count_shortest_paths(rows, cols, move_x, y0) + count_shortest_paths(rows, cols, x0, move_y)
 
-print(alphabet[1:])
+        
+  
+
+print(count_shortest_paths(3, 7))
+
+
+def count_unique_paths(rows, cols):
+    if rows == 1 or cols == 1:
+        return 1
+    else:
+        return count_unique_paths(rows-1, cols) + count_unique_paths(rows, cols-1)
+
+print(count_unique_paths(3, 7))
