@@ -9,3 +9,15 @@ def add_until_100(array):
             return array[0] + added_to_100
 
 print(add_until_100([25, 40, 20, 15]))
+
+def golomb(n, memo = {}):
+    if n == 1:
+        return 1
+    else:
+        if n not in memo:
+            memo[n] = 1 + golomb(n- golomb(golomb(n-1,memo), memo), memo)
+
+        return memo[n]
+
+
+print(golomb(100))
