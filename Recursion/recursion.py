@@ -59,4 +59,4 @@ def count_unique_paths(rows, cols):
     else:
         return count_unique_paths(rows-1, cols) + count_unique_paths(rows, cols-1)
 
-print(count_unique_paths(3, 3))
+print(count_unique_paths(2, 7))
