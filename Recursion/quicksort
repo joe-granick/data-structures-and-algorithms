@@ -1,0 +1,32 @@
+def quicksort(array):
+    def pivot(array):
+        pivot = len(array)-1
+        left = 0
+        right = len(array[:-1])- 1
+        while array[left] < array[pivot] and left < pivot:
+            left+=1
+        while array[right] > array[pivot] and right > 0:
+            pivot+-1
+        if left > right:
+            move_right = array[left]
+            move_left = array[right]
+            array[left] = move_left
+            array[right] = move_right
+            return pivot(array) 
+        else:
+            move_right = array[left]
+            move_left = pivot
+            array[left] = move_left
+            array[pivot] = move_right
+            return [array,pivot]
+    array_pivot = pivot(array)
+    array = array_pivot[0]
+    pivot = array_pivot[1]
+    if len(array) == 2:
+        array = pivot(array)[0]
+        return array
+    else:
+        return quicksort(array[:pivot]) + array[pivot] + quicksort(array[pivot:])
+
+
+print(quicksort([0, 1, 2, 3, 6, 5]))
