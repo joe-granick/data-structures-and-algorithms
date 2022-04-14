@@ -19,7 +19,7 @@ def pivot(array, left_index = 0, pivot_index = None, right_index = None):
 
 def quicksort(array):
     print(array)
-    if len(array) <= 2:
+    if len(array) <= 1:
         #print(array)
         return array
     else:
@@ -32,4 +32,4 @@ def quicksort(array):
     
 
 print(pivot([5, 7, 6, 8, 3, 2, 1, 0]))
-print(quicksort([5, 7, 6, 8, 3, 2, 1, 0]))
+print(quicksort([5,3,1,2,6,8]))
