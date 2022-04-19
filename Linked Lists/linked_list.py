@@ -132,6 +132,7 @@ class double_linked_list:
             new_next_node = current_node.next_node.next_node
             current_node.next_node = new_next_node
     
+
     def print_list(self):
         current_node = self.first_node
         node_index = 0
@@ -140,6 +141,14 @@ class double_linked_list:
             print("Node ", node_index ,":", val)
             node_index+=1
             current_node = current_node.next_node
+    def reverse_print_list(self):
+        current_node = self.last_node
+        node_index = -1
+        while current_node:
+            val = current_node.node_val
+            print("Node ", node_index ,":", val)
+            node_index-=1
+            current_node = current_node.previous_node
     
 
 
@@ -203,6 +212,9 @@ list_2.print_list()
 print(list_2.first_node.node_val)
 print(list_2.last_node.node_val)
 print(list_2.last_node.previous_node.node_val)
+
+print("reverse print double linked list")
+list_2.reverse_print_list()
 
 
 
