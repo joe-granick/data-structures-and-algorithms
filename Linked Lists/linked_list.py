@@ -1,3 +1,4 @@
+from calendar import c
 from pickle import LIST
 
 
@@ -65,10 +66,21 @@ class linked_list:
             current_node = current_node.next_node
         return current_node
     def reverse_list(self):
+        previous_node = None
         current_node = self.first_node
-        insert_node = current_node.next_node
-        current_node.next_node.delete()
-        self.insert(insert_node.node_val, 0)
+        
+        while current_node:
+            next_node = current_node.next_node
+            
+            current_node.next_node = previous_node
+            
+            previous_node = current_node
+            current_node = next_node
+        self.first_node = previous_node
+
+
+    
+      
         pass
 
 class double_linked_list:
@@ -196,6 +208,12 @@ list_1.delete(4)
 #print(list_1.read(4))
 list_1.print_list()
 print(list_1.last_node().node_val)
+
+print("\n")
+print("reverse list")
+list_1.reverse_list()
+list_1.print_list()
+print("\n")
 
 list_2 = double_linked_list()
 
