@@ -7,6 +7,9 @@ class node:
         self.node_val = node_val
         self.next_node = None
         self.previous_node = None
+    def delete_at_node(node):
+        node.node_val = node.next_node.node_val
+        node.next_node = node.next_node.next_node
 
 class linked_list:
     def __init__(self):
@@ -79,9 +82,11 @@ class linked_list:
         self.first_node = previous_node
 
 
+
+
     
       
-        pass
+
 
 class double_linked_list:
     def __init__(self):
