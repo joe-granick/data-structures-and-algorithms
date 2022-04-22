@@ -1,7 +1,3 @@
-from calendar import c
-from pickle import LIST
-
-
 class node:
     def __init__(self, node_val = None):   
         self.node_val = node_val
@@ -14,6 +10,7 @@ class node:
 class linked_list:
     def __init__(self):
         self.first_node = None
+
     def read(self, index):
         current_node = self.first_node
         current_index = 0
@@ -21,6 +18,7 @@ class linked_list:
             current_node = current_node.next_node
             current_index+=1
         return current_node.node_val
+
     def search(self, val):
         current_node = self.first_node
         index = 0
@@ -30,6 +28,7 @@ class linked_list:
             current_node = current_node.next_node
             index+=1
         return None
+
     def insert(self, val, index=0):
         current_node = self.first_node
         new_node = node(val)
@@ -44,6 +43,7 @@ class linked_list:
             next_next_node = current_node.next_node
             current_node.next_node = new_node
             current_node.next_node.next_node = next_next_node
+
     def delete(self, index=0):
         current_node = self.first_node
         current_index = 0
@@ -55,6 +55,7 @@ class linked_list:
                 current_index +=1
             new_next_node = current_node.next_node.next_node
             current_node.next_node = new_next_node
+
     def print_list(self):
         current_node = self.first_node
         node_index = 0
@@ -63,29 +64,23 @@ class linked_list:
             print("Node ", node_index ,":", val)
             node_index+=1
             current_node = current_node.next_node
+
     def last_node(self):
         current_node = self.first_node
         while  current_node.next_node:
             current_node = current_node.next_node
         return current_node
+
     def reverse_list(self):
         previous_node = None
         current_node = self.first_node
-        
         while current_node:
             next_node = current_node.next_node
-            
             current_node.next_node = previous_node
-            
             previous_node = current_node
             current_node = next_node
         self.first_node = previous_node
 
-
-
-
-    
-      
 
 
 class double_linked_list:
