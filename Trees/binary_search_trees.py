@@ -51,4 +51,10 @@ def bTree_traverse_print(node):
         bTree_traverse_print(node.right_child)
 
 bTree_traverse_print(node1)
+###CH 15 exercise 3
+def bTree_max(node):
+    if node.right_child:
+        bTree_max(node.right_child)
+    else:
+        return node.value
 
