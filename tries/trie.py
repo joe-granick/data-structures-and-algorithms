@@ -6,10 +6,10 @@ class trie:
     def __init__(self):
         root = trieNode()
 
-    def search(self, input):
+    def search(self, word):
         currentNode = self.root
-        for char in input:
-            if not currentNode.children.get(char):
+        for char in word:
+            if currentNode.children.get(char):
                 currentNode = currentNode.children[char]
             else:
                 return None
