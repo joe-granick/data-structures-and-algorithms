@@ -46,11 +46,11 @@ def alphabet_less_one(string):
 print(alphabet_less_one("the quick brown box jumps over the lazy dog"))
 
 def non_dup_char(string):
-    string_heap = defaultdict(lambda: 0)
+    string_hash = defaultdict(lambda: 0)
     for char in string:
-        string_heap[char] += 1
+        string_hash[char] += 1
     for char in string:
-        if string_heap[char] == 1:
+        if string_hash[char] == 1:
             return char
             break
     return "No unique characters"

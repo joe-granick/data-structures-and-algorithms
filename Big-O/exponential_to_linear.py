@@ -12,7 +12,7 @@ def exponential_dup(list):
 print(exponential_dup([1,2, 3, 4, 4]))
 print(exponential_dup([1,2, 3, 4, 5]))
 
-
+###### Updated with Hasmaop, once a value has been seen it is added to the hashmap as True, each susbquent value can be looked up her
 def linear_dup(list):
     steps = 0
     counted = defaultdict(lambda: False)
