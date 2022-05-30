@@ -14,7 +14,7 @@ class Vertex:
             self.adjacent_vertices.append(neighbor_vertex)
             neighbor_vertex.undirected_add_adjacent(self)
 
-    def dfs(self, visited = set(), path = ""):
+    def dfs_traverse(self, visited = set(), path = ""):
         # if path == None:
         #     path = []
         # path.append(self.value)
@@ -24,7 +24,28 @@ class Vertex:
         print("add vertex: ",self.value)
         for adjacent in self.adjacent_vertices:
             if adjacent and adjacent not in visited:
-                adjacent.dfs(visited, path)
+                adjacent.dfs_traverse(visited, path)
+    
+    def dfs_search(self, searchValue, visited = set(), path = ""):
+        path = path + self.value +","
+        print("current path: ", path)
+        visited.add(self)
+        print("add vertex: ",self.value)
+        if searchValue == self.value:
+            print("Value found")
+            return self
+        for adjacent in self.adjacent_vertices:
+            if adjacent not in visited:
+                if adjacent.value == searchValue:
+                    print("Value found")
+                    path = path + adjacent.value
+                    print("current path: ", path)
+                    return adjacent
+                vertex_search = adjacent.dfs_search(searchValue, visited, path)
+                
+                if vertex_search:
+                    return vertex_search
+        return None
 
             
 joe = Vertex("Joe")
@@ -52,7 +73,9 @@ derek.undirected_add_adjacent(gina)
 
 gina.undirected_add_adjacent(irina)
 
-path = joe.dfs()
+path = joe.dfs_traverse()
+joe.dfs_search("Helen")
+joe.dfs_search("John")
 #print(path)
 
 #for vertex in irina.adjacent_vertices:
